@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "../Button";
 
 const StyledHeader = styled.header`
   height: 13.6rem;
@@ -6,7 +7,11 @@ const StyledHeader = styled.header`
 `;
 
 const Header = () => {
-  return <StyledHeader></StyledHeader>;
+  return (
+    <StyledHeader>
+      <Button>Button 2</Button>
+    </StyledHeader>
+  );
 };
 
 export default Header;

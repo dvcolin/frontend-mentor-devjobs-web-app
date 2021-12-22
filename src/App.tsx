@@ -3,7 +3,7 @@ import Layout from "./components/layout/Layout";
 const App = () => {
   return (
     <Layout>
-      <div>hello</div>
+      <div>App</div>
     </Layout>
   );
 };
