@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 const headingStyles = css`
   font-weight: ${(props) => props.theme.fontWeights.bold};
+  color: ${(props) => props.theme.colors.primary.veryDarkBlue};
 `;
 
 export const H1 = styled.h1`
@@ -26,4 +27,5 @@ export const H4 = styled.h4`
   ${headingStyles};
   font-size: ${(props) => props.theme.fontSizes.h4.base};
   line-height: ${(props) => props.theme.lineHeights.h4};
+  color: ${(props) => props.theme.colors.primary.violet};
 `;

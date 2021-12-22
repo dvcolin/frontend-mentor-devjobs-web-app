@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
         font-weight: ${(props) => props.theme.fontWeights.body};
         line-height: ${(props) => props.theme.lineHeights.body};
         background-color: ${(props) => props.theme.colors.secondary.lightGray};
-        color: ${(props) => props.theme.colors.primary.veryDarkBlue};    }
+        color: ${(props) => props.theme.colors.secondary.darkGray};    }
 `;
 
 export default GlobalStyles;

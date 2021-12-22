@@ -1,9 +1,11 @@
+import data from "./data.json";
 import Layout from "./components/layout/Layout";
+import JobPostingList from "./components/JobPostingList";
 
 const App = () => {
   return (
     <Layout>
-      <div>App</div>
+      <JobPostingList posts={data} />
     </Layout>
   );
 };

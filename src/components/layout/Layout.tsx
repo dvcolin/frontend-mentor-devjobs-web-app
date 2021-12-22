@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Container from "../Container";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,7 +9,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Header />
-      {children}
+      <Container as="main">{children}</Container>
     </>
   );
 };

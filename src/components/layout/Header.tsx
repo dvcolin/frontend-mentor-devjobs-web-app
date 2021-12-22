@@ -1,15 +1,23 @@
 import styled from "styled-components";
-import Button from "../Button";
+import Container from "../Container";
 
 const StyledHeader = styled.header`
   height: 13.6rem;
-  background-color: ${(props) => props.theme.colors.primary.violet};
+  background-image: url(${process.env.PUBLIC_URL}/assets/mobile/bg-pattern-header.svg);
+  background-size: cover;
+  background-position: center;
+`;
+
+const StyledContainer = styled(Container)`
+  padding-top: 3.2rem;
 `;
 
 const Header = () => {
   return (
     <StyledHeader>
-      <Button>Button 2</Button>
+      <StyledContainer>
+        <img src={`${process.env.PUBLIC_URL}/assets/desktop/logo.svg`} alt="Logo" />
+      </StyledContainer>
     </StyledHeader>
   );
 };
