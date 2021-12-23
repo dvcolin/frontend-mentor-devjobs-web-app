@@ -1,30 +1,47 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-interface ButtonProps {
-  variant?: "primary" | "secondary";
-}
-
-const Button = styled.button<ButtonProps>`
-  font-family: inherit;
-  font-size: ${(props) => props.theme.fontSizes.body.base};
-  font-weight: ${(props) => props.theme.fontWeights.bold};
+const defaultButtonStyles = css`
   border: none;
   border-radius: 0.5rem;
-  padding: 1.6rem 3rem;
-  cursor: pointer;
   transition: all 0.15s;
-  background-color: ${(props) =>
-    props.variant === "primary"
-      ? props.theme.colors.primary.violet
-      : props.theme.colors.secondary.lightGray};
-  color: ${(props) =>
-    props.variant === "primary"
-      ? props.theme.colors.secondary.white
-      : props.theme.colors.primary.violet};
+  cursor: pointer;
+`;
+
+const primaryButtonStyles = css`
+  background-color: ${(props) => props.theme.colors.primary.violet};
+  color: ${(props) => props.theme.colors.secondary.white};
 
   &:hover {
     background-color: ${(props) => props.theme.colors.primary.lightViolet};
   }
 `;
 
-export default Button;
+const secondaryButtonStyles = css`
+  background-color: ${(props) => props.theme.colors.secondary.lightGray};
+  color: ${(props) => props.theme.colors.primary.violet};
+`;
+
+const secondaryIconButtonStyles = css`
+  background-color: transparent;
+  color: inherit;
+`;
+
+interface ButtonProps {
+  variant?: "primary" | "secondary";
+}
+
+export const Button = styled.button<ButtonProps>`
+  ${defaultButtonStyles}
+  font-family: inherit;
+  font-size: ${(props) => props.theme.fontSizes.body.base};
+  font-weight: ${(props) => props.theme.fontWeights.bold};
+  padding: 1.6rem 3rem;
+  ${(props) => (props.variant === "primary" ? primaryButtonStyles : secondaryButtonStyles)};
+`;
+
+export const IconButton = styled.button<ButtonProps>`
+  ${defaultButtonStyles}
+  width: 4.8rem;
+  height: 4.8rem;
+  ${(props) => (props.variant === "primary" ? primaryButtonStyles : secondaryIconButtonStyles)};
+`;
