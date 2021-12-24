@@ -1,3 +1,5 @@
+import { useState } from "react";
+import data from "../data.json";
 import styled from "styled-components";
 import { IconButton } from "./Button";
 import Input from "./Input";
@@ -24,15 +26,27 @@ const IconButtons = styled.div`
   }
 `;
 
-const FilterGroup = () => {
+interface FilterGroupProps {
+  filterJobPosts: any;
+}
+
+const FilterGroup = ({ filterJobPosts }: FilterGroupProps) => {
+  const [queryString, setQueryString] = useState("");
   return (
     <StyledFilterGroup>
-      <SearchInput type="text" placeholder="Filter by title..." />
+      <SearchInput
+        type="text"
+        placeholder="Filter by title..."
+        value={queryString}
+        onChange={(e) => {
+          setQueryString(e.target.value);
+        }}
+      />
       <IconButtons>
         <IconButton>
           <img src={`${process.env.PUBLIC_URL}/assets/mobile/icon-filter.svg`} alt="Filter" />
         </IconButton>
-        <IconButton variant="primary">
+        <IconButton variant="primary" onClick={() => filterJobPosts(queryString)}>
           <img src={`${process.env.PUBLIC_URL}/assets/mobile/icon-search.svg`} alt="Search" />
         </IconButton>
       </IconButtons>
