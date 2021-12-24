@@ -1,5 +1,4 @@
 import { useState } from "react";
-import data from "../data.json";
 import styled from "styled-components";
 import { IconButton } from "./Button";
 import Input from "./Input";
