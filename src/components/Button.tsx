@@ -41,7 +41,7 @@ export const Button = styled.button<ButtonProps>`
 
 export const IconButton = styled.button<ButtonProps>`
   ${defaultButtonStyles}
-  width: 4.8rem;
-  height: 4.8rem;
+  min-width: 4.8rem;
+  min-height: 4.8rem;
   ${(props) => (props.variant === "primary" ? primaryButtonStyles : secondaryIconButtonStyles)};
 `;

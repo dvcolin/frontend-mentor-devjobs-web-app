@@ -8,7 +8,7 @@ interface JobPostingListProps {
 const StyledJobPostingList = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  padding: 4.8rem 0;
+  padding: 1.6rem 0;
 `;
 
 const JobPostingList = ({ posts }: JobPostingListProps) => {
