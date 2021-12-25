@@ -1,23 +1,15 @@
-import { useState } from "react";
-import data from "./data.json";
+import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
-import FilterGroup from "./components/FilterGroup";
-import JobPostingList from "./components/JobPostingList";
+import HomePage from "./pages/HomePage";
+import JobPositionPage from "./pages/JobPositionPage";
 
 const App = () => {
-  const [jobPosts, setJobPosts] = useState(data);
-
-  const filterJobPosts = (queryString: string) => {
-    const filteredPosts = data.filter((post) =>
-      post.position.toLowerCase().includes(queryString.toLowerCase())
-    );
-    setJobPosts(filteredPosts);
-  };
-
   return (
     <Layout>
-      <FilterGroup filterJobPosts={filterJobPosts} />
-      <JobPostingList posts={jobPosts} />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/:id" element={<JobPositionPage />} />
+      </Routes>
     </Layout>
   );
 };

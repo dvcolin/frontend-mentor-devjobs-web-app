@@ -1,14 +1,16 @@
 import styled from "styled-components";
-import JobPostingCard, { JobPostingCardProps } from "./JobPostingCard";
+import JobPostingCard from "./JobPostingCard";
+import { JobPosting } from "../types";
 
 interface JobPostingListProps {
-  posts: JobPostingCardProps[];
+  posts: JobPosting[];
 }
 
 const StyledJobPostingList = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  padding: 1.6rem 0;
+  padding-top: 1.6rem;
+  padding-bottom: 3.2rem;
 `;
 
 const JobPostingList = ({ posts }: JobPostingListProps) => {

@@ -1,28 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import Text from "./Text";
 import { H3, H4 } from "./Heading";
-
-export interface JobPostingCardProps {
-  id: number;
-  company: string;
-  logo: string;
-  logoBackground: string;
-  position: string;
-  postedAt: string;
-  contract: string;
-  location: string;
-  website: string;
-  apply: string;
-  description: string;
-  requirements: {
-    content: string;
-    items: string[];
-  };
-  role: {
-    content: string;
-    items: string[];
-  };
-}
+import { JobPosting } from "../types";
 
 const StyledJobPostingCard = styled.div`
   position: relative;
@@ -69,6 +49,7 @@ const PostedAtAndContract = styled(Text)`
 
 const Position = styled(H3)`
   margin-top: 1.2rem;
+  text-decoration: none;
 `;
 
 const Company = styled(Text)`
@@ -80,6 +61,7 @@ const Location = styled(H4)`
 `;
 
 const JobPostingCard = ({
+  id,
   company,
   logo,
   logoBackground,
@@ -87,7 +69,7 @@ const JobPostingCard = ({
   postedAt,
   contract,
   location,
-}: JobPostingCardProps) => {
+}: JobPosting) => {
   return (
     <StyledJobPostingCard>
       <LogoBox bgColor={logoBackground}>
@@ -98,7 +80,9 @@ const JobPostingCard = ({
         <span>&middot;</span>
         <span>{contract}</span>
       </PostedAtAndContract>
-      <Position>{position}</Position>
+      <Position as={Link} to={`/${id}`}>
+        {position}
+      </Position>
       <Company>{company}</Company>
       <Location>{location}</Location>
     </StyledJobPostingCard>

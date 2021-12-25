@@ -26,7 +26,7 @@ const IconButtons = styled.div`
 `;
 
 interface FilterGroupProps {
-  filterJobPosts: any;
+  filterJobPosts: (queryString: string) => void;
 }
 
 const FilterGroup = ({ filterJobPosts }: FilterGroupProps) => {
@@ -38,7 +38,11 @@ const FilterGroup = ({ filterJobPosts }: FilterGroupProps) => {
         placeholder="Filter by title..."
         value={queryString}
         onChange={(e) => {
-          setQueryString(e.target.value);
+          const val = e.target.value;
+          setQueryString(val);
+          if (val === "") {
+            filterJobPosts(val);
+          }
         }}
       />
       <IconButtons>
